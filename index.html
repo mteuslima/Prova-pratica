@@ -1,0 +1,456 @@
+<!doctype html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+            <meta name="description" content="Divulgação de Eixos de trabalho pela Microsoft">
+            <meta name="keywords" content="Microsoft, Eixos de emprego, TI">
+            <meta name="author" content="Mateus Lima">
+
+
+            <link rel="icon" type="image/png" href="recursos/Logo.svg">
+
+
+            <title>EEEP Maria Célia</title>
+
+
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+
+            <link rel="stylesheet" href="style.css">
+           
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script>
+                tailwind.config = {
+                    darkMode: 'class',
+                    theme: {
+                        extend: {
+                            colors: {
+                                primary: {
+                                    600: '#dc2626',
+                                }
+                            },
+                            fontFamily: {
+                                sans: ['Inter', 'sans-serif'],
+                            },
+                        },
+                    },
+                }
+            </script>
+
+
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+
+            <style>
+            * {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+
+
+            html {
+                scroll-behavior: smooth;
+            }
+            .transition-all {
+                transition: all 0.3s ease;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.3s ease-in-out;
+            }
+            .section-hidden {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease-out;
+            }
+           
+            .section-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            </style>
+
+
+        </head>
+        <body class="bg-gray-100 dark:bg-gray-900">
+            <!-- Nav bar -->
+            <nav class="bg-gray/80 dark:bg-gray-900/80 backdrop-blur-md fixed w-full z-20 top-0 left-0 transition-all duration-300">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <div>
+                    <a href="#Hero" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="recursos/Corujona.svg" alt="" class="w-14 h-14">
+                        <span class="self-center text-2xl font-normal whitespace-nowrap dark:text-white">
+                        </span>
+                    </a>
+                    </div>
+                   
+                    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">                      
+                        <!-- Botão de Tema -->
+                        <button id="theme-toggle" type="button" class="text-gray-700 dark:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 focus:outline-none focus:ring-4 focus:ring-gray-200/50 dark:focus:ring-gray-700/50 rounded-lg text-sm p-2.5 transition-all">
+                            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </button>
+                       
+                        <!-- Botão do menu mobile -->
+                        <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 dark:text-gray-300 rounded-lg md:hidden hover:bg-gray-200/50 dark:hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-gray-300/50 dark:focus:ring-gray-600/50" aria-controls="navbar-default" aria-expanded="false">
+                            <span class="sr-only">Abrir menu</span>
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                            </svg>
+                        </button>
+                    </div>
+                   
+                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-gray-50/80 dark:bg-gray-800/80 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:md:bg-transparent backdrop-blur-md md:backdrop-blur-none">
+                            <li>
+                                <a href="#Hero" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-wbg-white md:p-0 dark:text-white md:dark:hover:text-wbg-white dark:hover:bg-gray-700/50 dark:hover:text-white md:dark:hover:bg-transparent transition-all">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="#Eixos" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-wbg-white md:p-0 dark:text-white md:dark:hover:text-wbg-white dark:hover:bg-gray-700/50 dark:hover:text-white md:dark:hover:bg-transparent transition-all">Eixos Profissionalizantes</a>
+                            </li>
+                            <li>
+                                <a href="#Beneficios" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-wbg-white md:p-0 dark:text-white md:dark:hover:text-wbg-white dark:hover:bg-gray-700/50 dark:hover:text-white md:dark:hover:bg-transparent transition-all">Benefícios</a>
+                            </li>
+                            <li>
+                                <a href="#Contato" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-wbg-white md:p-0 dark:text-white md:dark:hover:text-wbg-white dark:hover:bg-gray-700/50 dark:hover:text-white md:dark:hover:bg-transparent transition-all">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Fim da nav bar -->
+
+
+            <!-- Hero Section -->
+            <section id="Hero" class="bg-white dark:bg-gray-900 min-h-screen flex items-center justify-center px-6 pt-16">
+                <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 text-center md:text-left">
+                    <div class="md:w-1/2 md:pr-10">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white">
+                            Formando Profissionais para o <br>
+                            <span class="bg-gradient-to-r from-[#03805E] to-[#F49650] bg-clip-text text-transparent">Futuro</span>
+                        </h1>
+                        <p class="mt-6 text-lg text-gray-700 dark:text-gray-300">
+                            Na Maria Célia, capacitamos jovens em múltiplos eixos profissionais, preparando-os para os desafios do mercado de trabalho e do mundo acadêmico.
+                        </p>
+                        <div class="mt-8">  <!-- Aumentei mt-6 para mt-8 -->
+                            <a href="#Eixos" class="px-6 py-3 text-lg font-semibold text-white bg-[#03805E] rounded-lg hover:bg-green-900 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-800">
+                                Conheça nossos eixos
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <!-- Imagem -->
+                    <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+                        <img src="recursos/Escola.png" alt="Foto tirada de cima da escola Maria Célia" class="w-full max-w-md" style="border-radius: 16px;">
+                    </div>
+                </div>
+            </section>
+            <!-- Fim da Hero Section -->
+
+
+            <!-- Seção Eixos -->
+            <section id="Eixos" class="justify-center bg-white dark:bg-gray-900 py-16 px-6"><br>
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white text-center mb-12">
+                        Nossos eixos de formação técnica
+                    </h2>
+                    <br>
+           
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
+                        <!-- Card Gestao -->
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                                <img class="rounded-t-lg" src="recursos/Finanças.jpg" alt="Eixo gestão e negócios" />
+                            <div class="p-5">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Gestão e Negócios</h5><br>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                    <b>Cursos:</b> Administração, Comércio e Finanças.<br><br>
+                                    <b>Descrição:</b> <br>
+                                    Formação voltada às práticas gerenciais, planejamento estratégico e gestão de recursos em diferentes setores do mercado. <br>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card Informação -->
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                                <img class="rounded-t-lg" src="recursos/Gui-Jay.jpg" alt="Eixo Informação e Comunicação" />
+                            <div class="p-5">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Informação e Comunicação</h5><br>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                    <b>Cursos:</b> Desenvolvimento de Sistemas e Redes de Computadores.<br><br>
+                                    <b>Descrição:</b> <br>
+                                    Desenvolvimento de Sistemas e Redes de Computadores. <br>
+                                </p>
+                            </div>
+                        </div>
+           
+                        <!-- Card Recursos -->
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                                <img class="rounded-t-lg" src="recursos/Fruti.jpg" alt="Eixo em Recursos naturais" />
+                            <div class="p-5">
+                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Recursos Naturais</h5><br>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                    <b>Cursos:</b> Agronegócio e Fruticultura. <br><br>
+                                    <b>Descrição:</b> <br>
+                                    Foco em técnicas de produção agrícola, gestão de cadeias produtivas e práticas sustentáveis de cultivo. <br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Fim da seção Eixos -->
+
+            <!-- Seção Beneficios -->
+            <section id="Beneficios" class="bg-white dark:bg-gray-900 py-16 px-6"><br>
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white text-center mb-12">
+                        Por que Escolher a EEEP Professora Maria Célia Falcão?
+                    </h2>
+                   
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!--Card 1-->
+                        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="rgba(3,128,94,1)"><path fill="none" d="M0 0h24v24H0z"></path><path d="M4 5V16H20V5H4ZM2 4.00748C2 3.45107 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44892 22 4.00748V18H2V4.00748ZM1 19H23V21H1V19Z"></path></svg>                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Infraestrutura Moderna</h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Laboratórios equipados para prática em áreas de TI, Gestão e Agroindústria.</p>
+                        </div>
+                       
+                        <!--Card 2-->
+                        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="rgba(3,128,94,1)"><path fill="none" d="M0 0h24v24H0z"></path><path d="M4 3C3.44772 3 3 3.44772 3 4V20C3 20.5523 3.44772 21 4 21H14C14.5523 21 15 20.5523 15 20V15.2973L15.9995 19.9996C16.1143 20.5398 16.6454 20.8847 17.1856 20.7699L21.0982 19.9382C21.6384 19.8234 21.9832 19.2924 21.8684 18.7522L18.9576 5.0581C18.8428 4.51788 18.3118 4.17304 17.7716 4.28786L14.9927 4.87853C14.9328 4.38353 14.5112 4 14 4H10C10 3.44772 9.55228 3 9 3H4ZM10 6H13V14H10V6ZM10 19V16H13V19H10ZM8 5V15H5V5H8ZM8 17V19H5V17H8ZM17.3321 16.6496L19.2884 16.2338L19.7042 18.1898L17.7479 18.6057L17.3321 16.6496ZM16.9163 14.6933L15.253 6.86789L17.2092 6.45207L18.8726 14.2775L16.9163 14.6933Z"></path></svg>
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Suporte Acadêmico</h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Acompanhamento individualizado, reforço pedagógico e orientação profissional.</p>
+                        </div>
+                       
+                        <!--Card 3-->
+                        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="rgba(3,128,94,1)"><path fill="none" d="M0 0h24v24H0z"></path><path d="M4 11.3333L0 9L12 2L24 9V17.5H22V10.1667L20 11.3333V18.0113L19.7774 18.2864C17.9457 20.5499 15.1418 22 12 22C8.85817 22 6.05429 20.5499 4.22263 18.2864L4 18.0113V11.3333ZM6 12.5V17.2917C7.46721 18.954 9.61112 20 12 20C14.3889 20 16.5328 18.954 18 17.2917V12.5L12 16L6 12.5ZM3.96927 9L12 13.6846L20.0307 9L12 4.31541L3.96927 9Z"></path></svg>                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Projetos Extracurriculares</h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Iniciação científica, feiras de empreendedorismo e atividades de extensão comunitária.</p>
+                        </div>
+                       
+                        <!--Card 4-->
+                        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="rgba(3,128,94,1)"><path fill="none" d="M0 0h24v24H0z"></path><path d="M16 4V9H10V11H16V17H10V20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H16ZM14 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H8V15H14V13H8V7H14V4ZM2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6Z"></path></svg>                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Conexões Profissionais</h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Parcerias com empresas e universidades, possibilitando estágios e visitas técnicas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Fim da seção Beneficios -->
+
+
+           <!-- Seção Contato -->
+            <section id="Contato" class="bg-white dark:bg-gray-900 py-16 px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+                            Fale Conosco
+                        </h2>
+                        <p class="mt-4 text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+                            Quer saber mais sobre os cursos, matrículas ou nossa infraestrutura? <br> Preencha o formulário abaixo e retornaremos em breve.
+
+                        </p>
+                    </div>
+                   
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm">
+                        <form class="space-y-6 max-w-2xl mx-auto">
+                            <div>
+                                <label for="nome" class="block text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">Nome completo</label>
+                                <input type="text" id="nome" class="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Maria Silva" required>
+                            </div>
+                           
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="seuemail@exemplo.com" required>
+                            </div>
+                           
+                            <div>
+                                <label for="mensagem" class="block text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">Mensagem</label>
+                                <textarea id="mensagem" rows="5" class="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Descreva sua dúvida aqui..." required></textarea>
+                            </div>
+                           
+                            <button type="submit" class="w-full px-6 py-3 bg-[#03805E] hover:bg-green-900 text-white font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Rodapé Ajustado -->
+            <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <img src="recursos/Logo.svg" class="h-8 w-8" alt="Microsoft Logo">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                Copyright © 2024 EEEP Professora Maria Célia Falcão. Todos os direitos reservados.
+                            </span>
+                        </div>
+                       
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="#" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">Regulamento Interno</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">Termos de Uso</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">Portal do Aluno</a>
+                            <a href="#" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">Portal da SEDUC</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+            <!-- Seção scripts -->
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+           
+            // Verifica o tema atual ao carregar a página
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                // Tema escuro está ativo
+                document.documentElement.classList.add('dark');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+            } else {
+                // Tema claro está ativo
+                document.documentElement.classList.remove('dark');
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
+           
+            // Alterna entre os temas quando o botão é clicado
+            themeToggleBtn.addEventListener('click', function() {
+                // Alterna os ícones
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
+               
+                // Se estiver definido no localStorage
+                if (localStorage.getItem('color-theme')) {
+                    // Se for claro, aplica escuro
+                    if (localStorage.getItem('color-theme') === 'light') {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    }
+                } else {
+                    // Se não estiver definido no localStorage
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    }
+                }
+            });
+           
+            // Navegação ativa
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+           
+            window.addEventListener('scroll', function() {
+                let current = '';
+               
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                   
+                    if (pageYOffset >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+               
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+           
+            // Fecha o menu mobile ao clicar em um item
+            const navbarToggle = document.querySelector('[data-collapse-toggle="navbar-default"]');
+            const navbarMenu = document.getElementById('navbar-default');
+           
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navbarToggle.setAttribute('aria-expanded', 'false');
+                    navbarMenu.classList.add('hidden');
+                });
+            });
+        });
+
+
+               
+                // Inicializa tudo quando o DOM estiver pronto
+                document.addEventListener('DOMContentLoaded', function() {
+                    setupTheme();
+                    setupCarousels();
+                   
+                    // Observa mudanças no tema do sistema (apenas se não houver preferência salva)
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                        if (!localStorage.getItem('color-theme')) {
+                            const themeDarkIcon = document.getElementById('theme-toggle-dark-icon');
+                            const themeLightIcon = document.getElementById('theme-toggle-light-icon');
+                           
+                            if (e.matches) {
+                                document.documentElement.classList.add('dark');
+                                themeLightIcon.classList.remove('hidden');
+                                themeDarkIcon.classList.add('hidden');
+                            } else {
+                                document.documentElement.classList.remove('dark');
+                                themeDarkIcon.classList.remove('hidden');
+                                themeLightIcon.classList.add('hidden');
+                            }
+                        }
+                    });
+                });
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Seleciona todas as seções principais
+                    const sections = document.querySelectorAll('section');
+                   
+                    // Adiciona a classe section-hidden inicialmente
+                    sections.forEach(section => {
+                        section.classList.add('section-hidden');
+                    });
+                   
+                    // Cria um observador de interseção
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('section-visible');
+                                // Opcional: para observar apenas uma vez
+                                // observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.1, // Dispara quando 10% da seção estiver visível
+                        rootMargin: '0px 0px -50px 0px' // Margem inferior para disparar um pouco antes
+                    });
+                   
+                    // Observa cada seção
+                    sections.forEach(section => {
+                        observer.observe(section);
+                    });
+                });
+            </script>
+        </body>
+    </html>
